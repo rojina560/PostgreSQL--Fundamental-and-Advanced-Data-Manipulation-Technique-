@@ -80,7 +80,7 @@ INSERT INTO students2 (first_name, last_name, age, grade, course, email, dob, bl
 --SELECT country from students2 ORDER BY country ASC
 
 --SELECT DISTINCT country FROM students2 
---SELECT DISTINCT blood_group FROM students2 
+SELECT DISTINCT blood_group FROM students2 
 
 -------------------data filtering---------------------
 -- select students2 from USA
@@ -95,7 +95,7 @@ INSERT INTO students2 (first_name, last_name, age, grade, course, email, dob, bl
 
 
 -- condition
---SELECT* from students2 
+SELECT* from students2 
 --WHERE country = 'USA';
 --SELECT* from students2 
 --WHERE grade = 'B' AND course = 'Biology';
@@ -115,7 +115,87 @@ INSERT INTO students2 (first_name, last_name, age, grade, course, email, dob, bl
 -- WHERE age >20 and country = 'USA'
 --  select * from students2
 -- WHERE country <>  'USA'
+
+-----------------scalar function------------------
+-- upper() convert a string to uppercase
+--lower() convert a string to lowercase
+--concat() concatinates two or more string
+-- length() returns the number of characters in a string
+
+
+
+-----------------example-------------------
 --SELECT upper(first_name) from students2
 --SELECT upper(first_name), * from students2
 --SELECT upper(first_name) as first_name_in_upperCase, * from students2
-select concat(first_name,' ',last_name)from students2
+--select concat(first_name,' ',last_name)from students2
+--SELECT length(first_name) from students2
+---------------------Aggregate function-----------------------
+--1 Avg calculate the avarage of a set of value
+--2 max()returns max value in a set
+--3 min()returns min value in a set 
+--4 sum calculate the sum of value in a set
+--5 count()count the number of rows
+
+-----------------Example-------------------
+-- SELECT count(*) from students2 (total koita rows ase ai count ta )
+
+--select avg(age) from students2
+--SELECT MAX(length(first_name)) from students2
+--SELECT min(length(first_name)) from students2
+--SELECT sum(age) from students2
+-- SELECT * from students2
+-- WHERE not country = 'USA'
+
+
+--- use of (is in between like ilike)
+SELECT * from students2
+ where email  IS NOT NULL;
+ SELECT * from students2
+ where country = 'USA'or country='UK';
+ SELECT * from students2
+ WHERE country IN ('USA','UK','Canada','Australia');
+ SELECT * from students2
+ WHERE country NOT IN ('USA','UK','Canada','Australia');
+ SELECT * from students2
+ WHERE dob between '2000-01-01' and '2005-010' ORDER BY dob;
+ SELECT * from students2
+ where first_name LIKE 'a%';
+
+ SELECT * from students2
+ where first_name ILIKE '%am'
+
+ SELECT * from students2
+ where first_name ILIKE '__r%';
+
+ SELECT * from students2
+ where first_name ILIKE '_%';
+
+ SELECT * from students2
+ where first_name ILIKE '__th%';
+
+ -------------pagination----------------
+ SELECT* from students2 limit 5 ;
+ SELECT* from students2 limit 5 OFFSET 5;
+ SELECT* from students2 limit 5 OFFSET 5*0;
+ SELECT* from students2 limit 5 OFFSET 5*1;
+ SELECT* from students2 limit 5 OFFSET 5*3;
+
+ ------------ update  delete drop------------
+ SELECT * from students2
+ WHERE country = 'USA' ;
+
+ DELETE from students2
+ where grade = 'B';
+ DELETE from students2
+ where grade = 'B' and country = 'USA';
+ SELECT * FROM students2 WHERE students_id = 45;
+ UPDATE students2
+ SET email = 'rojinaakter@gmail.com'
+ WHERE students_id = 43;
+ UPDATE students2
+ SET email = 'rojinaakter@gmail.com', age = 50,course = 'medical assistant'
+ WHERE students_id = 43;
+ SELECT *from students2
+
+
